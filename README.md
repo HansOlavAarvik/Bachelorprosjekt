@@ -17,7 +17,7 @@ Sjå [uv.md](docs/uv.md) for meir informasjon
 
 ### Ruff
 
-uv installerer også ruff som eit utviklingsverktøy. Som fjerner stil- og formatteringsfeil i koden.
+uv er satt opp til å installerere ruff, som fjerner stil- og formatteringsfeil i koden.
 Ekvivalent til black/flake, som er linter og formatteringsfikseverktøy
 
 Bruk det med å køyre

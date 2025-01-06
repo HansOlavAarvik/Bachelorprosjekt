@@ -22,7 +22,7 @@ Legg til og fjern *avhengigheiter (deps)*, dette vil endre `pyproject.toml`
 Oppdater ein dep ved å køyre
 - `uv lock --upgrade-package pandas`
 
-## Filer med meir
+## Filer og sånt
 
 uv bruker ein del filer for å halde orden på prosjektet, 
 les denne [introen](https://docs.astral.sh/uv/concepts/projects/layout/) for meir informasjon om dei
