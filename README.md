@@ -7,14 +7,13 @@ Her skal det stå om prosjektet og korleis ein bruker det.
 
 ### [uv](https://docs.astral.sh/uv/)
 
+Dette er eit verktøy for å handtere prosjekter, eit essensielt verktøy for å handtere venvs, avhengigheitar, bygging m.m. når ein lager større prosjekt.
+
 > 🚀 A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more.
 
+Sjå [uv.md](docs/uv.md) for meir informasjon
 
-1. [Installer uv for ditt operativsystem ](https://docs.astral.sh/uv/getting-started/installation/)
-    - Fleire installasjonsmoglegheiter tilgjengeleg. `winget` er eit greit alternativ for windows
 
-        `winget install --id=astral-sh.uv  -e`
-    - Restart Kodeappen din, om du får `uv not recognized` feilmeldinga.
 
 ### Ruff
 
