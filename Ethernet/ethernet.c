@@ -5,7 +5,7 @@
 static uint8_t initialized = 0;
 
 
-void ETHERNET_Init(void)
+void ETHERNET_init(void)
 {
     // Add initialization code here
     initialized = 1;

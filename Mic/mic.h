@@ -1,10 +1,10 @@
 #ifndef MIC   // Replace MODULE_NAME with actual name (e.g., MIC_H_)
 #define MIC 
 
-#include "../../Inc/main.h"
+#include "main.h"
 #include <stdint.h>
 
-void MIC(void);
+void MIC_Init(void);
 
 
 #endif 
