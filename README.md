@@ -27,13 +27,27 @@ Enviromental monetring divice used for monitoring conditions in eletrical cabine
         - Without trustzone
         - Unselect all example code
     - Enable following Pins:
-        -Icache (1-way)
-        -Usart3 (Asynchronous)
-        -I2C1 (I2C)
-        -I2C2 (I2C)
-        -I2S1 (Half-duplex slave recieve)
-            -Set audio frequency to 48Khz
-        -ETH(RMII)
+        - Icache (1-way)
+        - Usart3 (Asynchronous)
+        - I2C1 (I2C)
+        - I2C2 (I2C)
+        - I2S2 (Half-duplex master recieve)
+            - Enable clock
+            - 16 bits Data on 16 Bits frame
+            - Set audio frequency to 32Khz
+        - GPDMA1
+            - Set channel 0 to: Standard request mode
+                - Circular mode: Enable
+                - Priority: Very high
+                - Request: SPI2_RX/I2S2_RX
+        - ETH(RMII)
+            - Go to Project manager
+                - Advanced settings
+                    - set MX_ETH_init to not static 
+        - Rename following GPIO pins to:
+            - PF4 - LED_YELLOW
+            - PG4 - LED_RED
+            - PB0 - LED_GREEN
     - In project manager:
         - Name project
         - Set toolchain to CMake
@@ -112,8 +126,8 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 )
 ```
 
-    - Delete Build folder
-    - Rebuild with 
+  - Delete Build folder
+  - Rebuild with 
 
 
 ```bash 
