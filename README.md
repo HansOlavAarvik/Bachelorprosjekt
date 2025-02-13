@@ -8,8 +8,8 @@ Enviromental monetring divice used for monitoring conditions in eletrical cabine
 ## Installation
 
 ### Prerequisites
-- STM32Cube VS code extension or STM32Cubeide (installation guide: https://www.st.com/content/st_com/en/campaigns/stm32-vs-code-extension-z11.html)
-- Git installed on your system
+- STM32Cube VS code extension or STM32Cubeide, installation guide: (https://www.st.com/content/st_com/en/campaigns/stm32-vs-code-extension-z11.html)
+- Git installed (https://git-scm.com)
 
 ### Quiality of life extensions
 - Seiral monitor (https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-serial-monitor)
@@ -50,12 +50,13 @@ Enviromental monetring divice used for monitoring conditions in eletrical cabine
             - PB0 - LED_GREEN
     - In project manager:
         - Name project
+        - Choose installation-path
         - Set toolchain to CMake
     - Click Generate code in upper right conrner
         - Click open folder and copy path
 3. In STM32 VS Code extension click Import Cmake project
-    -paste copied path
-    -from dropdown-menu in VS code, choose improt project
+    - Paste copied path
+    - From dropdown-menu in VS code, choose improt project
 
 4. Add the following includes to your `main.c`:
 ```c
@@ -66,11 +67,13 @@ Enviromental monetring divice used for monitoring conditions in eletrical cabine
 #include "Environment-monitor/Tof/tof.h"
 #include "Environment-monitor/GPIO/gpio.h"
 #include "Environment-monitor/Ethernet/ethernet.h"
+#include "Environment-monitor/Div/div.h"
+#include <stdint.h>
 ```
 
 5. Navigate to your STM32 project's Core/Src directory:
 ```bash
-cd Your_Project/Core/Src
+cd "Project_name"/Core/Src
 ```
 
 6. Clone the repository:
@@ -79,10 +82,9 @@ git clone https://github.com/HansOlavAarvik/Environment-monitor.git
 ```
 
 
-
 7. Configure CMake 
 
-- Rewrite CMake configure to:
+- Rewrite CMakeLists.txt to:
 ```bash
 cmake_minimum_required(VERSION 3.22)
 
@@ -104,7 +106,16 @@ enable_language(C ASM)
 project(${CMAKE_PROJECT_NAME})
 
 # Create executable
-add_executable(${CMAKE_PROJECT_NAME})
+add_executable(${CMAKE_PROJECT_NAME}
+    Core/Src/main.c
+    Core/Src/Environment-monitor/Div/div.c
+    Core/Src/Environment-monitor/Ethernet/ethernet.c
+    Core/Src/Environment-monitor/GPIO/gpio.c
+    Core/Src/Environment-monitor/Mic/mic.c
+    Core/Src/Environment-monitor/Temp_humid/temp_humid.c
+    Core/Src/Environment-monitor/Tof/tof.c
+    Core/Src/Environment-monitor/Vib/vib.c
+)
 
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
@@ -126,11 +137,11 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 )
 ```
 
-  - Delete Build folder
-  - Rebuild with 
+  - If there is a build folder delete it
+  - Rebuild:
 
 
 ```bash 
-cmake --build build/Debug
+cmake --build build
 ```
 
